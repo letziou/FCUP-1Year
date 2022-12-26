@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <meta content="text/html; charset=ISO-8859-1"
+ http-equiv="content-type">
+  <title> CC1003 - Aplicação de estruturas </title>
+</head>
+<body>
+<h1 style="text-align: center;">Programação Imperativa (CC1003)</h1>
+
+
+
+<ol>
+  <hr>
+  <p></p>
+
+
+
+Dada uma base de dados com informação sobre alunos e disciplinas
+de cursos de uma faculdade, pretendemos consultá-la para
+obter informações.
+
+As estruturas de dados que vão ser usadas pelo programa, obedecem
+à especificação seguinte.
+
+<font color = "blue">
+<pre> 
+typedef struct aluno {
+  char nome[MAXNOME], codigo[MAX];
+  int disc[MAX], nd;
+} ALUNO;
+
+
+typedef struct disciplina {
+  char nome[MAXNOME];
+  int ano;
+} DISCIPLINA;
+
+
+int NDisc = 9;
+DISCIPLINA Disc[MAXDISC] = {
+      {"Programacao Imperativa",1},
+      {"Calculo Infinitesimal I",1},
+      {"Programacao Estruturada",1},
+      {"Topologia",4},
+      {"Geometria Computacional",4},
+      {"Probabilidades e Estatistica",2},
+      {"Teoria de Numeros",3},
+      {"Analise Infinitesimal",3},
+      {"Logica",3}
+     };	
+
+int NAlunos = 6;
+ALUNO Alunos[MAXALUNOS] = {
+    {"Mariana Matias","2001018003", {2,1,9,5,3,7}, 6},
+    {"Anabela Moreira", "2000020004",{6,2,3,7,8,9}, 6},
+    {"Sonia Silva", "2000020005",{5,6,1,8,9},5},
+    {"Joao Maria Peixoto", "2000018001",{3,4,1,5}, 4},
+    {"Joao Mario Pereira","2004010005",{8,1,2,3,4,5,6},7},
+    {"Maria Reis", "2000020050",{5,6,1,7,3,9},6}
+  };
+</pre>
+</font>
+
+<hr>
+
+  <p></p>
+
+No exemplo, 
+<b><code>Programacao Imperativa</code></b> é a disciplina <b><code>1</b></code> e
+<b><code>Programacao Estruturada</b></code>
+a disciplina <b><code>3</b></code>. <br>
+As disciplinas a que um aluno está inscrito são identificadas pelos seus números de ordem no array <code>Disc</code>.
+<br>
+O código de um aluno é uma sequência de 10 dígitos: os quatro primeiros identificam o ano de inscrição, os três seguintes o código do curso, e os três últimos identificam o aluno.
+ <hr>
+  <p></p>
+
+
+<h1>Exercícios</h1>
+
+<ol>
+<li>  Escrever uma função 
+<b><code> void procura(char palavranome[]) </code></b>
+para imprimir o código e nome dos alunos cujo nome contém uma 
+palavra dada por <b> <code>palavranome</code></b>. Por exemplo, se a palavra fosse "Maria", deveria imprimir:
+
+<font color="blue">
+<pre>
+Alunos cujo nome inclui Maria
+
+2001018003 Mariana Matias
+2000018001 Joao Maria Peixoto
+2000020050 Maria Reis
+</pre>
+</font>
+
+Não deverá ser feita qualquer ordenação
+dos dados. A menos que a ordenação seja explicitamente solicitada,
+ no output deverá ser mantida a ordem de ocorrência dos dados
+nas estruturas de dados.
+</li>
+
+
+
+<p></p>
+
+Para testar o programa, pode usar os dados que constam do ficheiro <b>dados.h</b>.  Para isso, coloque a instrução  <pre>#include "dados.h"</pre>
+Na próxima aula teórica serão dadas outras formas para introdução dos dados.
+
+
+<P>
+
+
+
+<li>
+
+Obter o nome de um aluno dando o seu código (retorna 0 se não existir,
+e 1 caso contrário):
+ <b><pre>  int codigo2Aluno(char codigo[],char nome[]) </pre></b>
+
+</li>
+
+ <p></p>
+
+
+<li>
+
+Escrever a lista de disciplinas a que um aluno está inscrito, sendo dado
+o nome do aluno (e retorna o número de disciplinas a que está inscrito):
+ <b><pre>  int disciplinas_de_Aluno(char nome[]) </pre></b>
+
+</li>
+
+
+<p></p>
+
+
+<li>
+
+Obter os índices (das posições em <code>Alunos</code> dos) dos alunos
+que estão inscritos a uma disciplina, 
+dando o nome da disciplina (retorna o número de alunos nessas condições)
+ <b><pre>  int alunos_de_disciplina(char disciplina[], int indices[]) </pre></b>
+
+</li>
+
+<p></p>
+<li>
+
+Obter o número médio de disciplinas em que os alunos 
+dum dado curso estão inscritos. Escreva uma função que retorne esse
+valor, arrendondado por defeito, 
+se necessário:
+ <b><pre>  int numero_medio(char curso[]) </pre></b>
+
+</li>
+
+
+<p></p>
+
+<li>
+
+Obter os índices das posições (em <b><code>
+Alunos[]</code></b>) 
+dos alunos dum dado curso que estão 
+inscritos a mais disciplinas do que o número médio a
+que se encontram inscritos os alunos desse  curso.
+Escreva uma função <b><pre>  int muitas_disciplinas(char curso[], int indices[])</pre></b>
+para colocar os índices procurados no vector dado 
+por <b><code>indices</code></b>, e que retorne o número de alunos
+nessas condições.
+
+</li>
+
+<P></P>
+
+<li>
+Obter o número máximo de disciplinas a que os alunos que entraram 
+num dado curso num dado ano estão inscritos. 
+Para determinar esse valor, escreva uma função <b><pre>  int numero_maximo(char cursoano[]) </pre></b>
+A sequência de caracteres 
+dada por <b><code> cursoano </code></b> foi obtida por
+concatenação do <i>ano de entrada</i> com o <i>código do curso</i>
+(dados), ou seja, se fosse "2006" e "018", <b><code> cursoano
+</code></b> apontaria "2006018".
+
+</li>
+
+<p></p>
+
+<li>
+Obter o número de disciplinas dum dado ano a que um dado
+aluno está inscrito. Para determinar esse valor, escreva uma
+  função <b><pre> int numero_disc(int posaluno,int ano) </pre></b> 
+Assume-se que <b><code> posaluno </code></b> contém o índice da
+posição do aluno em <b><code> Alunos[]</code></b>, sendo uma posição
+válida.</li>
+
+  <p></p>
+
+
+
+<li> Verificar se um dado aluno está inscrito a disciplinas 
+de vários anos. Escreva uma função <b><pre> int varios_anos(int posaluno) </pre></b>
+para o fazer. A função retorna um valor qualquer diferente de zero 
+em caso afirmativo, e 0 (zero) caso contrário.
+Assume-se que <b><code> posaluno </code></b> contém o índice da
+posição do aluno em <b><code> Alunos[]</code></b>, sendo uma posição
+válida.
+</li>  <p></p>
+
+
+</ol>
+</body>
+</html>

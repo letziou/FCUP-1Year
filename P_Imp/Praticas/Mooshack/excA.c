@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int changes(int a, int b);
+
+int main(int argc, char const *argv[]) {
+  int piso, ele1, ele2, r1, r2;
+
+  scanf("%d %d %d",&piso,&ele1,&ele2);
+
+  if(ele1 == 999 && ele2 == 999){
+    printf("Apanha as escadas gordo !!\n");
+    exit(0);
+  }
+
+  r1 = changes(ele1,piso);
+  r2 = changes(ele2,piso);
+
+  if(ele1 == 999){
+    printf("Elevador nº2\n");
+    exit(0);
+  }
+
+  if(ele2 == 999){
+    printf("Elevador nº1\n");
+    exit(0);
+  }
+
+  if(ele1==ele2){
+    printf("Elevador nº1\n");
+    exit(0);
+  }
+
+  if(r1 == r2){
+    if(ele1 < ele2)
+      printf("Elevador nº2\n");
+    else printf("Elevador nº1\n");
+    exit(0);
+  }
+
+  if(r1 < r2){
+    printf("Elevador nº1\n");
+  }
+  else printf("Elevador nº2\n");
+
+  return 0;
+}
+
+int changes(int a, int b){
+  if(a > b)
+  return a-b;
+  else return b-a;
+}

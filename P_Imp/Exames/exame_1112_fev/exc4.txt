@@ -1,0 +1,12 @@
+Joao Diogo Martins
+Jorge Maria Pereira
+Antonia Faria
+Maria Dinis
+Martim Braga Sousa
+Rui Simao Vieira
+12 -1 12 11 10 -1 -1
+16 17 18 16 18 -1 -1
+16 10 14 17 -1 15 16
+15 15 18 15 -1 15 -1
+-1 -1 -1 -1 -1 -1 -1
+20 10 -1 -1 -1 -1 -1

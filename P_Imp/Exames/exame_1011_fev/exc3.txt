@@ -1,0 +1,10 @@
+Ases
+1 1 2 0
+Broas
+1 0 2 2
+Cruzes
+1 1 2 2
+Kraks
+0 0 0 0
+Colas
+1 0 2 0
